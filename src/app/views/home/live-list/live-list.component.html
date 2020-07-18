@@ -1,33 +1,80 @@
+
+
 <mat-tab-group mat-alig-tabs = "start" class="main-tabs"> 
 
     <mat-tab label="Próximas">
          <div fxLayout="row" fxLayoutAlign="start center" class="div-content"> 
-             <div class="div-card">
+             <ng-container *ngFor = "let live of livesPrevious" class="div-card">
                  
-                <mat-card class="example-card"
+                <mat-card class="mat-card-live"
                 fxFlex="0 1 calc(33.3% - 11px)"
                 fxFlex.lt-md="0 1 calc(50% - 11px)"
                 fxFlex.lt-sm="100%">
-                    <mat-card-header>
-                      
-                    </mat-card-header>
+                    <mat-card-title class="mat-card-title-live" >
+                      <div class="row">
+                        <p>
+                          <span style ="font-size: 0.9rem;" fxFlex="70" fxLayoutAlign="start center">{{live.liveName}}</span>
+                          <span fxFlex></span>
+                          <mat-chip class="mat-chip-date"> 
+                            <span  style ="font-size: 0.7rem;" fxFlex="25" fxLayoutAlign="center center">{{live.liveDate | locaDateTime}}</span>
+                          </mat-chip>
+                          
+                        </p>
+                        <p  style ="font-size: 0.7rem;">
+                           Canal: <span>{{live.channelName}}</span>
+                        </p>
+                      </div>
+
+                    </mat-card-title>
                     
-                    <mat-card-content>
-                      <p>
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                        bred for hunting.
-                      </p>
+                    <mat-card-content fxLayoutAlign="center center">
+                      <div>
+                        <iframe width="560" height="315" [src]="live.urlSafe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    
+                      </div>
                     </mat-card-content>
                     
                   </mat-card>
                   
-             </div>
+             </ng-container>
          </div>
     </mat-tab>
 
     <mat-tab label="Realizadas">
-        <div fxLayout="row" fxLayoutAlign="start center" > </div>
+        <div fxLayout="row" fxLayoutAlign="start center" > 
+          <ng-container *ngFor = "let live of livesNext" class="div-card">
+                 
+            <mat-card class="mat-card-live"
+            fxFlex="0 1 calc(33.3% - 11px)"
+            fxFlex.lt-md="0 1 calc(50% - 11px)"
+            fxFlex.lt-sm="100%">
+                <mat-card-title class="mat-card-title-live" >
+                  <div class="row">
+                    <p>
+                      <span style ="font-size: 0.9rem;" fxFlex="70" fxLayoutAlign="start center">{{live.liveName}}</span>
+                      <span fxFlex></span>
+                      <mat-chip class="mat-chip-date"> 
+                        <span  style ="font-size: 0.7rem;" fxFlex="25" fxLayoutAlign="center center">{{live.liveDate | locaDateTime}}</span>
+                      </mat-chip>
+                    </p>
+                    <p  style ="font-size: 0.7rem;">
+                       Canal: <span>{{live.channelName}}</span>
+                    </p>
+                  </div>
+
+                </mat-card-title>
+                
+                <mat-card-content fxLayoutAlign="center center">
+                  <div>
+                    <iframe width="560" height="315" [src]="live.urlSafe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
+                  </div>
+                </mat-card-content>
+                
+              </mat-card>
+              
+         </ng-container>
+        </div>
     </mat-tab>
 
 </mat-tab-group>

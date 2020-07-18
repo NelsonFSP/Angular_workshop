@@ -11,12 +11,16 @@ import {MatButtonModule} from '@angular/material/button';
 import { LiveListComponent } from './views/home/live-list/live-list.component';
 import {MatTabsModule} from '@angular/material/tabs'; 
 import {MatCardModule} from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
+import { LocaDateTimePipe } from './shared/pipe/loca-date-time.pipe';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LiveListComponent,
+    LocaDateTimePipe,
     
     
   ],
@@ -28,9 +32,11 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatButtonModule,
     MatTabsModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule,
+    MatChipsModule
   ],
-  providers: [],
+  providers: [LocaDateTimePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
