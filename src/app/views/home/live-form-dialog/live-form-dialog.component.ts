@@ -1,6 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { MatDialogRef} from '@angular/material/dialog';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-live-form-dialog',
@@ -17,6 +17,15 @@ export class LiveFormDialogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.liveForm = this.fb.group({
+      
+      liveName : ['',[Validators.required]],
+      channelName : ['',[Validators.required]],
+      liveLink : ['',[Validators.required]],
+      liveDate : ['',[Validators.required]],
+      liveTime : ['',[Validators.required]]
+
+    });
   }
   cancel(): void {
     this.dialogRef.close();

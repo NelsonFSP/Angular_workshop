@@ -16,6 +16,8 @@ import { LocaDateTimePipe } from './shared/pipe/loca-date-time.pipe';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LiveFormDialogComponent } from './views/home/live-form-dialog/live-form-dialog.component'; 
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,12 @@ import { LiveFormDialogComponent } from './views/home/live-form-dialog/live-form
     MatCardModule,
     HttpClientModule,
     MatChipsModule,
-    MatDialogModule
+    MatDialogModule,
+    //MatInputModule,
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
   providers: [LocaDateTimePipe],
   bootstrap: [AppComponent]
